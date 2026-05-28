@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-mod order;
-mod order_book;
-mod order_type;
-mod side;
-
-pub use order::Order;
-pub use order_book::OrderBook;
-pub use order_type::OrderType;
-pub use side::Side;
+pub enum Side {
+    Buy,
+    Sell,
+}

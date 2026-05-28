@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-mod order;
-mod order_book;
-mod order_type;
-mod side;
+use crate::{OrderType, Side};
+use chrono::{DateTime, Utc};
+use uuid::Uuid;
 
-pub use order::Order;
-pub use order_book::OrderBook;
-pub use order_type::OrderType;
-pub use side::Side;
+pub struct Order {
+    pub id: Uuid,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
+    pub symbol: String,
+    pub side: Side,
+    pub quantity_total: f64,
+    pub quantity_filled: f64,
+    pub order_type: OrderType,
+}

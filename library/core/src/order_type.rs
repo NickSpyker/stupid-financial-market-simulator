@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 
-mod order;
-mod order_book;
-mod order_type;
-mod side;
-
-pub use order::Order;
-pub use order_book::OrderBook;
-pub use order_type::OrderType;
-pub use side::Side;
+pub enum OrderType {
+    Market,
+    Limit {
+        price: f64,
+    },
+    Stop {
+        price_trigger: f64,
+    },
+    StopLimit {
+        price_trigger: f64,
+        price_limit: f64,
+    },
+}
